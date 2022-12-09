@@ -1,0 +1,37 @@
+version: '3'
+
+services:
+  weather_demo_ade_dev:
+    container_name: weather_demo_ade_dev
+    build:
+      context: .
+    working_dir: /extension
+    command: cextrun -d
+    volumes: 
+      - .:/extension
+    env_file:
+      - .weather_demo_ade_dev.env
+
+  weather_demo_ade_bash:
+    container_name: weather_demo_ade_bash
+    build:
+      context: .
+    working_dir: /extension
+    command: /bin/bash
+    stdin_open: true
+    tty: true
+    volumes:
+      - .:/extension
+    env_file:
+      - .weather_demo_ade_dev.env
+
+  weather_demo_ade_test:
+    container_name: weather_demo_ade_test
+    build:
+      context: .
+    working_dir: /extension
+    command: extension-test
+    volumes:
+      - .:/extension
+    env_file:
+      - .weather_demo_ade_dev.env

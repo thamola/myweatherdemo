@@ -1,0 +1,7 @@
+*.pyc
+htmlcov
+.coverage
+coverage.xml
+.weather_demo_ade_dev.env
+node_modules
+ui/tests/coverage
